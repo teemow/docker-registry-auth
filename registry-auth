@@ -1,0 +1,21 @@
+Listen *:8050
+<VirtualHost *:8050>
+ ProxyPreserveHost  On
+ ProxyRequests      Off
+ ProxyPass          /  http://localhost:5000/
+ ProxyPassReverse   /  http://localhost:5000/
+
+ <Proxy *>
+       order deny,allow
+       Allow from all
+       AuthType Basic
+       AuthName "Dockzero Registry"
+       AuthBasicProvider ldap
+       AuthzLDAPAuthoritative Off
+
+       AuthLDAPURL ldap://ldap.dus.dg-i.net,ldap1.dus.dg-i.net,ldap2.dus.dg-i.net/ou=People,dc=accounts,dc=dg-i,dc=net?uid
+       AuthLDAPBindDN  cn=dk0reader,ou=Security,dc=accounts,dc=dg-i,dc=net
+       AuthLDAPBindPassword  iethe3Ahnoh4lah8oojievahyieMeequ
+       require ldap-attribute isMemberOf=DK0-app-registry
+ </Proxy>
+ </VirtualHost>
