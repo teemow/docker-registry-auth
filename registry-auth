@@ -2,8 +2,8 @@ Listen *:8050
 <VirtualHost *:8050>
  ProxyPreserveHost  On
  ProxyRequests      Off
- ProxyPass          /  http://${REGISTRY_PORT_5000_TCP_ADDR}:${DB_PORT_5000_TCP_PORT}/
- ProxyPassReverse   /  http://${REGISTRY_PORT_5000_TCP_ADDR}:${DB_PORT_5000_TCP_PORT}/
+ ProxyPass          /  http://${REGISTRY_PORT_5000_TCP_ADDR}:${REGISTRY_PORT_5000_TCP_PORT}/
+ ProxyPassReverse   /  http://${REGISTRY_PORT_5000_TCP_ADDR}:${REGISTRY_PORT_5000_TCP_PORT}/
 
  <Proxy *>
        order deny,allow
