@@ -6,8 +6,6 @@ Listen *:8050
  ProxyPassReverse   /  http://${REGISTRY_PORT_5000_TCP_ADDR}:${REGISTRY_PORT_5000_TCP_PORT}/
 
  <Proxy *>
-       order deny,allow
-       Allow from all
        AuthType Basic
        AuthName "Dockzero Registry"
        AuthBasicProvider ldap
