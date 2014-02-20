@@ -1,5 +1,16 @@
 Listen *:8050
 <VirtualHost *:8050>
+ SSLEngine On
+ SSLVerifyClient none
+ SSLVerifyDepth 3
+ SSLOptions +ExportCertData +StdEnvVars
+ SSLProtocol all -SSLv2
+ SSLCipherSuite TLSv1:SSLv3:!ADH:!SSLv2:!NULL:!EXPORT:!DES:!LOW:!MEDIUM:@STRENGTH
+
+ SSLCertificateFile ${SSL_CERT_FILE}
+ SSLCertificateKeyFile ${SSL_KEY_FILE}
+ SSLCertificateChainFile ${SSL_CHAIN_FILE}
+
  ProxyPreserveHost  On
  ProxyRequests      Off
  ProxyPass          /  http://${REGISTRY_PORT_5000_TCP_ADDR}:${REGISTRY_PORT_5000_TCP_PORT}/
