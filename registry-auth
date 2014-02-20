@@ -12,8 +12,8 @@ Listen *:8050
        AuthzLDAPAuthoritative Off
 
        AuthLDAPURL ldap://ldap.dus.dg-i.net,ldap1.dus.dg-i.net,ldap2.dus.dg-i.net/ou=People,dc=accounts,dc=dg-i,dc=net?uid
-       AuthLDAPBindDN  cn=dk0reader,ou=Security,dc=accounts,dc=dg-i,dc=net
-       AuthLDAPBindPassword  iethe3Ahnoh4lah8oojievahyieMeequ
+       AuthLDAPBindDN cn=dk0reader,ou=Security,dc=accounts,dc=dg-i,dc=net
+       AuthLDAPBindPassword ${LDAP_READER_PWD}
        require ldap-attribute isMemberOf=DK0-app-registry
  </Proxy>
  </VirtualHost>
