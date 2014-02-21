@@ -1,4 +1,6 @@
 Listen *:8050
+ServerName registry.dockzero.io
+
 <VirtualHost *:8050>
  SSLEngine On
  SSLVerifyClient none
