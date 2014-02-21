@@ -12,6 +12,8 @@ RUN a2dissite default
 RUN a2enmod authnz_ldap
 RUN a2enmod proxy_http
 RUN a2enmod ssl
+RUN mkdir /var/run/apache2
+RUN chown www-data:www-data /var/run/apache2
 
 ADD ./registry-auth /etc/apache2/sites-available/registry-auth
 RUN a2ensite registry-auth
